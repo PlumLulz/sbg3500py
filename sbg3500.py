@@ -57,7 +57,7 @@ def SBG3500(serial):
 	print(key)
 
 
-parser = argparse.ArgumentParser(description='Turkey Zyxel Keygen. (Zyxel VMG3312-B10B and VGM3313-B10A)')
+parser = argparse.ArgumentParser(description='Zyxel SBG3500-N000 Keygen')
 parser.add_argument('serial', help='Serial Number')
 args = parser.parse_args()
 
