@@ -1,10 +1,12 @@
 # Default ESSID is ZyXELXXXXX
 # https://www.ebay.com/itm/154987272276?hash=item2415f61854:g:0mkAAOSw7jJieWgr
 # Zyxel SBG3500-N000
+# Also works for VMG4325-B10A, VMG4380-B10A and VMG4381-B10A using lower case (mac - 2)
+# When label mac is '603197dfeea9' input is '603197dfeea7' and pwd length 10
 import hashlib
 import argparse
 
-def SBG3500(serial):
+def SBG3500(serial, length):
 
 	junk = 'agnahaakeaksalmaltalvandanearmaskaspattbagbakbiebilbitblableblib'\
 	'lyboabodbokbolbomborbrabrobrubudbuedaldamdegderdetdindisdraduedu'\
@@ -53,12 +55,13 @@ def SBG3500(serial):
 			d2 += d2
 		hex_digest += d2
 
-	key = hex_digest[6:26]
+	key = hex_digest[6:6+length]
 	print(key)
 
 
 parser = argparse.ArgumentParser(description='Zyxel SBG3500-N000 Keygen')
 parser.add_argument('serial', help='Serial Number')
+parser.add_argument('-length', help='Key length', default=20, type=int)
 args = parser.parse_args()
 
-SBG3500(args.serial)
+SBG3500(args.serial, args.length)
